@@ -8,6 +8,7 @@ namespace TakeAway.Discount.Context
     public class DiscountContext :DbContext
     {
         private readonly IConfiguration _configuration;
+        private readonly string _connectionString;
 
         public DiscountContext(IConfiguration configuration)
         {
@@ -16,14 +17,6 @@ namespace TakeAway.Discount.Context
         }
 
         public IDbConnection CreateConnection() => new SqlConnection(_connectionString);
-
-        private readonly string _connectionString;
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer("Server=MSI;initial Catalog=TakeAwayDiscount;integrated security=true");
-
-        }
-
         public  DbSet<Coupon> Coupons { get; set; }
     }
 }

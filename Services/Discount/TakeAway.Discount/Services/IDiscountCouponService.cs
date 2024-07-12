@@ -8,7 +8,7 @@ namespace TakeAway.Discount.Services
         Task CreateDiscountCouponAsync(CreateDiscountCouponDto createDiscountCouponDto);
         Task UpdateDiscountCouponAsync(UpdateDiscountCouponDto updateDiscountCouponDto);
         Task DeleteDiscountCouponAsync(int id);
-        GetByIdDiscountCouponDto GetByIdDiscountCouponAsync(int id);
+        Task <GetByIdDiscountCouponDto> GetByIdDiscountCouponAsync(int id);
 
     }
 }
