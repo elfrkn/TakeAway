@@ -31,11 +31,25 @@ namespace TakeAway.OrderPresentation.Controllers
             return Ok("Sipariş eklendi");
         }
 
-        [HttpPost]
+        [HttpGet("{id}")]
         public async Task<IActionResult> GetOrdering(int id)
         {
             var values = await _mediator.Send(new GetOrderingByIdQuery(id));
             return Ok(values);
+        }
+
+        [HttpDelete]
+        public async Task<IActionResult> DeleteOrdering(int id)
+        {
+            await _mediator.Send(new RemoveOrderingCommand(id));
+            return Ok("Sipariş silindi");
+        }
+
+        [HttpPut]
+        public async Task<IActionResult> UpdateOrdering(UpdateOrderingCommand command)
+        {
+            await _mediator.Send(command);
+            return Ok("Sipariş güncellendi");
         }
     }
 }
