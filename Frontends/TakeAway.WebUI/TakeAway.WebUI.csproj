@@ -14,7 +14,6 @@
     <Folder Include="Handlers\" />
     <Folder Include="Resources\" />
     <Folder Include="Settings\" />
-    <Folder Include="Services\" />
   </ItemGroup>
 
 </Project>
